@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import { Localization, InputText } from '../../components'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { Localization, InputText, BtnRound } from '../../components'
 
 import { styles } from './styles'
 import { PRIMERY_COLOR } from '../../components/sharedStyleValues'
@@ -9,8 +9,9 @@ export const LoginView = ({
   email,
   password,
   errorEmail,
-  errorPasswor,
-  validForm
+  errorPassword,
+  validForm,
+  onTextChange
 }) => {
 
   return (
@@ -26,15 +27,25 @@ export const LoginView = ({
         </View>
         <View style={styles.container}>
           <InputText 
-            onChangeText={(e) => console.log(e)}
+            name={'Email'}
             type={'email'}
             placeholder={"Email"}
-            onChange={(text)=>console.log(text)} 
-            error={'required'} />
+            onChange={onTextChange} 
+            value={email}
+            error={errorEmail}
+             />
+          <View style={{height: 20}} />
           <InputText 
+            name={'Password'}
             type={'password'}
-            error={''} 
-            placeholder={"password"} />
+            onChange={onTextChange} 
+            value={password}
+            error={errorPassword} 
+            placeholder={"Password"} />
+          <TouchableOpacity>
+            <Text style={styles.forgotpassordText}>Forgot your password?</Text>
+          </TouchableOpacity>
+          <BtnRound title={"Login"}  />
         </View>
       </ScrollView>
     </View>

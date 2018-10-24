@@ -27,5 +27,9 @@ export const styles = StyleSheet.create({
     color: shared.SECONDARY_TEXT_COLOR,
     textAlign: 'center',
     width: 270
+  },
+  forgotpassordText: {
+    color: shared.PRIMERY_COLOR,
+    fontSize: 18
   }
 })

@@ -1,4 +1,7 @@
 {
   "login.text" : "Already have an account? Login here to discover, play. share, and be rewarderded on Matchroom",
-  "login.title": "Login" 
+  "login.title": "Login" ,
+  "login.error.valid.email": "This should be a valid email",
+  "login.error.required.email": "Email feild is required",
+  "login.required.pasword": "Password feild is required"
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { LoginView } from './LoginView'
 
+
+import { Localization } from '../../components/localization/Localization'
 class LoginContainer extends React.Component {
 
   constructor(props) {
@@ -9,31 +11,26 @@ class LoginContainer extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errorEmail: '',
-      errorPassword: '',
-      validForm: ''
+      validForm: false
     }
   }
 
-  emailtextChange = (text) => this.onChangetext('email', text)
-  passwordTextChange = (text) => this.onChangetext('password', text) 
+  onTextChange = (feild, value) => this.setState({[feild]: value}, this.validateForm)  
 
-  validatetext = (feild, text) => {
-    if(feild === 'email') {}
-  }
+  validateForm = () => (this.state.email !== "" && this.state.password !== "")? this.setState({validForm:true}): this.setState({validForm:false}) 
 
-  onChangetext = (feild, value) => this.setState({[feild] : value})
-  
   render() {
+
+    console.log(this.state, 'container state')
+
     return (
       <LoginView 
-        emailtextChange={this.emailtextChange}
-        passwordTextChange={this.passwordTextChange}
-
+        onTextChange={this.onTextChange}
+        validForm={this.state.validForm}
         email={this.state.email}
         password={this.state.password}
         errorEmail={this.state.errorEmail}
-        errorPasswor={this.state.errorPassword}
+        errorPassword={this.state.errorPassword}
         validForm={this.state.validForm} />
     )
   }
