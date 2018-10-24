@@ -5,8 +5,12 @@
 
 import { combineReducers } from "redux"
 
-import { authReducer as auth } from './authReducer' 
+import { authReducer as auth } from './authReducer'
+import { tournamentsReducer as tournaments } from './tournamentsReducer'
+import { activeTournamentReducer as activeTournament } from './activeTournamentReducer'
 
 export const rootReducer = combineReducers({
-    auth
+    auth,
+    tournaments,
+    activeTournament
 })

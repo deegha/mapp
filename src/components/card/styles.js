@@ -11,20 +11,62 @@ const {height, width} = Dimensions.get('window')
 export const styles = StyleSheet.create({
   container: {
     height:  327,
-    width: width,
-    borderRadius:22,
-    backgroundColor: shared.BACKGROUND_COLOR_2
+    width: '100%',
+    borderRadius: 22,
+    backgroundColor: shared.BACKGROUND_COLOR_2,
+    zIndex: 1,
+    marginBottom: 20
   },
   imgArea : {
-    flex: 2
+    flex: 2,
+    borderRadius:22,
   },
   detailArea : {
     flex:1,
-    
+    padding:13
   },
   img: {
     flex: 1,
     width: null,
-    height: null
+    height: null,
+    borderRadius:22,
+  },
+  titleArea : {
+    flex:2,
+    height: 47,
+    flexDirection: 'row',
+    alignItems:'center'
+  },
+  title: {
+    fontSize: 18,
+    color: shared.PRIMERY_COLOR,
+    marginLeft: 15
+  },
+  details: {
+    flex:1,
+    flexDirection: 'row'
+  },
+  date: {
+    color: shared.SECONDARY_DETAILS,
+    fontSize: 12,
+    marginLeft: 5
+  },
+  price: {
+    color: shared.SECONDARY_DETAILS,
+    fontSize: 12,
+    marginLeft: 5
+  },
+  priceContainer: {
+    marginLeft: 20,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  detailContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  gameIcon: {
+    width:48,
+    height: 47
   }
 })

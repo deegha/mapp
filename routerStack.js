@@ -6,12 +6,27 @@
 import { createStackNavigator } from 'react-navigation'
 
 import ArenaContainer from './src/pages/arena/ArenaContainer'
+import TournamentContainer from './src/pages/tournament/TournamentContainer'
+import LoginLoginContainer from './src/pages/login/LoginContainer' 
 
 export const RootStack = createStackNavigator(
 	{
 		arena: {
 			screen: ArenaContainer,
 			title: 'Arena',
+			navigationOptions:{
+				header: null 
+			}
+		},
+		tournament: {
+			screen: TournamentContainer,
+			title: 'Tournament',
+			navigationOptions:{
+				header: null 
+			}
+		},
+		login: {
+			screen: LoginLoginContainer,
 			navigationOptions:{
 				header: null 
 			}

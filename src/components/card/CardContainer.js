@@ -4,3 +4,9 @@
 
 import React from 'react'
 
+export const navigate = (navigation, id) => () => {
+  navigation.navigate('tournament', {
+    id: id
+  })
+}
+
