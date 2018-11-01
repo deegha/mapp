@@ -1,3 +1,7 @@
+/**
+ * Created by deegha on 24/10/2018
+ */
+
 import { StyleSheet } from 'react-native'
 import * as shared from '../sharedStyleValues'
 
@@ -28,14 +32,28 @@ export const styles = StyleSheet.create({
   },
   roundbBtnContainer: {
     marginTop: 30,
-    padding: 15,
+    padding: 13,
     borderRadius: 40,
     backgroundColor: shared.PRIMERY_COLOR,
-    alignItems:'center'
+    alignItems:'center',
+    width: 200
   },
   roundbBtnText: {
-    fontSize: 25,
+    fontSize: 22,
     color: '#000',
+    fontWeight: 'bold'
+  },
+  disRoundbBtnContainer: {
+    marginTop: 30,
+    padding: 13,
+    borderRadius: 40,
+    backgroundColor: '#414141',
+    alignItems:'center',
+    width: 200
+  },
+  disRoundbBtnText: {
+    fontSize: 22,
+    color: '#ababab',
     fontWeight: 'bold'
   }
 })

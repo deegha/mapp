@@ -49,6 +49,7 @@ class TournamentsContainer extends React.Component {
   setActiveTab = (tab)=> () => this.setState({activeTab: tab})
 
   render() {
+    console.log(this.props.auth)
     return <TournamentsView
               navigation={this.props.navigation}
               showTabs={this.state.showTabs} 
@@ -61,9 +62,10 @@ class TournamentsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ tournaments }) => ({
+const mapStateToProps = ({ tournaments, auth }) => ({
   loading: tournaments.loading,
-  tournaments: tournaments.tournaments
+  tournaments: tournaments.tournaments,
+  auth
 })
 
 const mapDispatchToProps = (dispatch) => ({

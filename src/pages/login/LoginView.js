@@ -1,3 +1,7 @@
+/**
+ * Created by deegha on 25/10/2018
+ */
+
 import React from 'react'
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import { Localization, InputText, BtnRound } from '../../components'
@@ -11,7 +15,9 @@ export const LoginView = ({
   errorEmail,
   errorPassword,
   validForm,
-  onTextChange
+  onTextChange,
+  onSubmit,
+  loading
 }) => {
 
   return (
@@ -25,7 +31,7 @@ export const LoginView = ({
             <Localization id={'login.text'} />
           </Text>
         </View>
-        <View style={styles.container}>
+        <View>
           <InputText 
             name={'Email'}
             type={'email'}
@@ -45,7 +51,9 @@ export const LoginView = ({
           <TouchableOpacity>
             <Text style={styles.forgotpassordText}>Forgot your password?</Text>
           </TouchableOpacity>
-          <BtnRound title={"Login"}  />
+          <View style={styles.submitBtn}>
+            <BtnRound onSubmit={onSubmit} loading={loading} disabled={!validForm} title={"Login"}  />
+          </View>
         </View>
       </ScrollView>
     </View>

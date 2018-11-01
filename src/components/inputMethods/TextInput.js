@@ -1,3 +1,8 @@
+/**
+ * Created by deegha on 23/10/2018
+ */
+
+
 import React from 'react'
 import { TextInput, View, Text } from 'react-native'
 import { styles } from './styles'
@@ -26,6 +31,10 @@ export class InputText extends React.Component {
   validate = (text) => {
     text === ""? this.setError(this.props.name+' feild is required'): this.setError('')
     this.setState({value: text})
+
+    if(this.props.type === 'email') {
+      !validateEmail(text)? this.setError('Enter a valid email'): this.setError('')
+    }
   }
 
   render() {

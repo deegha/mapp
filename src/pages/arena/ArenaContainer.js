@@ -24,6 +24,7 @@ export default createBottomTabNavigator({
   },
   Profile: {
     screen: ProfileContainer,
+    userName: "shuboothi",
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         return <Ionicons name={'ios-person'} size={25} color={tintColor} />
