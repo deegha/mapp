@@ -49,7 +49,6 @@ class TournamentsContainer extends React.Component {
   setActiveTab = (tab)=> () => this.setState({activeTab: tab})
 
   render() {
-    console.log(this.props.auth)
     return <TournamentsView
               navigation={this.props.navigation}
               showTabs={this.state.showTabs} 

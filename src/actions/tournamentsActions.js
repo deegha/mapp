@@ -24,6 +24,6 @@ export const getTournamentsRequest = () => ({
 export const getTournaments = () => dispatch => {
   dispatch(getTournamentsRequest)
   getTornaments()
-    .then(tournaments => dispatch(getTournamentsSuccess(tournaments)))
+    .then(res => dispatch(getTournamentsSuccess(res.tournaments)))
     .catch(err => console.log(err) )
 }

@@ -6,7 +6,22 @@ import * as Actions from '../actions/tournamentsActions'
 
 const initialState = {
   loading: false,
-  tournaments:  []
+  tournaments:  [
+    {
+      id:null,
+      image: '',
+      title: '',
+      date: '',
+      endDate: '',
+      price: '',
+      ongoing: false,
+      icon: '',
+      infoText:"",
+      rules: '',
+      is_free: false,
+      mcoin_fees: ''
+    }
+  ]
 } 
 
 export const tournamentsReducer = ( state=initialState, action ) => {
@@ -24,7 +39,24 @@ export const tournamentsReducer = ( state=initialState, action ) => {
     case Actions.GET_TOURNAMENTS_SUCCESS: 
       return {
         loading: false,
-        tournaments: action.tournaments
+        tournaments: action.tournaments.map(tournament => {
+          if(tournament.status === 'Active') {
+            return (
+              {
+                id: tournament.id,
+                image: tournament.banner_url,
+                title: tournament.title,
+                date: tournament.start_date,
+                endDate: tournament.end_date,
+                price: tournament.prize_pot,
+                ongoing: tournament.active,
+                icon: tournament.icon_url, 
+                infoText: tournament.description,
+                rules: tournament.rules
+              }
+            )
+          }
+        })
       }
     default: return state
   } 

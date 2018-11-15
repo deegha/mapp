@@ -11,6 +11,8 @@ import { createBottomTabNavigator } from 'react-navigation'
 import TournamentsContainer from '../tournaments/TournamentsContainer'
 import ProfileContainer from '../profile/ProfileContainer'
 
+import iconTrophy from '../../../assets/iconTrophy.png'
+
 import * as shared from '../../components/sharedStyleValues'
 
 export default createBottomTabNavigator({

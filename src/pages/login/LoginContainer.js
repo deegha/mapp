@@ -14,8 +14,8 @@ class LoginContainer extends React.Component {
     super(props)
 
     this.state = {
-      email: 'raj@myleet.com',
-      password: 'matchroom123',
+      email: '',
+      password: '',
       validForm: true
     }
   }
@@ -48,7 +48,6 @@ class LoginContainer extends React.Component {
   }
 
   render() {
-
     return (
       <LoginView 
         loading={this.props.authLoading}

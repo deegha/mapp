@@ -67,12 +67,9 @@ export const TournamentsView = ({handleScroll, titleH, subTitleH, tournaments, n
         </TabView>
         <View>
           {tournaments.map(tournament => {
-            
             if(tournament.ongoing === (activeTab=='ongoing'?true:false))
             return <CardView navigation={navigation} key={tournament.id} tournament={tournament} />
-          }
-            
-          )}
+          })}
         </View>
         
       </ScrollView>

@@ -170,3 +170,27 @@ export const tornaments = [
   }
 ]
 
+
+
+export const onePlayerTornaments = [
+  {
+    title: 'MRB-Mini DotA2 Tournament',
+    icon: 'https://i.imgur.com/6BiAtvj.png',
+    date: '07 OCT 2018',
+    price: '7,000 PHP',
+    entrance: {
+      fee: 500,
+      curency: "mcoin"
+    }
+  },
+  {
+    title: 'Pubg Tournament',
+    icon: 'https://i.imgur.com/6BiAtvj.png',
+    date: '07 OCT 2018',
+    price: '7,000 PHP',
+    entrance: {
+      fee: 0,
+      curency: ""
+    }
+  }
+]

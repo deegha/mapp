@@ -9,10 +9,14 @@ import { authReducer as auth } from './authReducer'
 import { tournamentsReducer as tournaments } from './tournamentsReducer'
 import { activeTournamentReducer as activeTournament } from './activeTournamentReducer'
 import { activeUserReducer as activeUser } from './activeUserReducer'
+import { friendsReducer as friends } from './friendsReducer'
+import { userGamesReducer as userGames } from './userGamesReducer'
 
 export const rootReducer = combineReducers({
     auth,
     tournaments,
     activeTournament,
-    activeUser
+    activeUser,
+    friends,
+    userGames
 })

@@ -7,11 +7,12 @@ import * as shared from '../../components/sharedStyleValues'
 
 export const styles = StyleSheet.create({
   container: {
-    flex:1,
-    height: 400
+    height: 375
   },
   scrollArea:{
-    marginBottom: 60
+    marginBottom: 60,
+    flex:1,
+    backgroundColor: shared.SECONDARY_COLOR,
   },
   header: {
     flex:1,
@@ -49,7 +50,7 @@ export const styles = StyleSheet.create({
   headerImageText: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: 33
   },
   tabsSection: {
@@ -57,12 +58,14 @@ export const styles = StyleSheet.create({
     backgroundColor: shared.SECONDARY_COLOR,
     justifyContent:'flex-end',
     borderBottomWidth: 2,
-    borderBottomColor: shared.TAB_BORDER
+    borderBottomColor: shared.TAB_BORDER,
   },
   tournamentdetail: {
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
     flexDirection: 'row',
+    paddingLeft: 29,
+    paddingRight: 29
   },
   detailText: {
     color: shared.PRIMERY_COLOR,
@@ -76,11 +79,16 @@ export const styles = StyleSheet.create({
   },
   detailsWrapper: {
     alignItems:'center',
-    marginBottom: 10
+    marginBottom: 10,
+  },
+  detailsWrapperDate: {
+    alignItems:'flex-start',
+    marginBottom: 10,
   },
   freeTextContainer: {
     padding: 20,
-    backgroundColor: shared.BACKGROUND_COLOR_3
+    // backgroundColor: shared.BACKGROUND_COLOR_3,
+    flex: 1
   },
   freeText: {
     color: '#ffffff'
@@ -139,5 +147,23 @@ export const styles = StyleSheet.create({
     top: 10,
     width: '100%',
     height: 70
+  },
+  tabBody: {
+    flex: 1,
+    backgroundColor: shared.SECONDARY_COLOR,
+  },
+  dateIcon: {
+    width: 20,
+    height: 20
+  },
+  dateContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  },
+  dateText: {
+    fontSize: 14,
+    color: shared.SECONDARY_TEXT_COLOR,
+    marginLeft: 5
   }
 })

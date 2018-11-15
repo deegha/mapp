@@ -16,10 +16,10 @@ import btnShare from '../../../assets/btnShare.png'
 
 import { TAB_INFO, TAB_PLAYERS, TAB_BRACKET } from './TournamentContainer'
 
-export const TournamentView = ({tournament, setActiveTab, activeTab, renderSelectedTab, goBack, navigation}) => {
+export const TournamentView = ({tournament, setActiveTab, activeTab, renderSelectedTab, goBack, navigation, players}) => {
   return (
-    <View>
-    <ScrollView style={styles.scrollArea} >
+    <View style={{flex:1}}>
+    <ScrollView style={styles.scrollArea}>
       <View style={styles.container}>
         <ImageBackground
           style={styles.headerImage}        
@@ -34,25 +34,40 @@ export const TournamentView = ({tournament, setActiveTab, activeTab, renderSelec
             </TouchableOpacity> 
           </View>
           <LinearGradient style={styles.headerImageText} colors={['rgba(238, 238, 238, 0)', '#000000']}>
-            <Image source={{uri:tournament.icon}} style={styles.gameIcon} />
+            {/* <Image source={{uri:tournament.icon}} style={styles.gameIcon} /> */}
             <Text style={styles.title}>
               {tournament.title}  
             </Text>
+            {!tournament.is_free && <View>
+              <Text>
+                {tournament.mcoin_fees}
+              </Text>
+            </View>}
           </LinearGradient>
         </ImageBackground>
       </View>
       <View style={styles.tabsSection}>
         <View style={styles.tournamentdetail}>
-          <View style={styles.detailsWrapper}>
-            <Image source={iconCalendar} style={styles.detaiilIcons} />     
-            <Text style={styles.detailText}>
-              {tournament.date}
-            </Text>
+          <View style={styles.detailsWrapperDate}>
+              <View style={styles.dateContainer}>
+                <Image source={iconCalendar} style={styles.dateIcon} />     
+                <Text style={styles.dateText}>
+                  Reg Start: {new Date(tournament.date).toDateString()}
+                  
+                </Text>
+              </View>
+              <View style={{height: 14}} />
+              <View style={styles.dateContainer}>
+                <Image source={iconCalendar} style={styles.dateIcon} />     
+                <Text style={styles.dateText}>
+                  Tour Start: {new Date(tournament.endDate).toDateString()}
+                </Text>
+              </View>
           </View>
           <View style={styles.detailsWrapper}>
             <Image source={iconTrophy} style={styles.detaiilIcons} />
             <Text style={styles.detailText}>
-              {tournament.price}
+             14000 PHP
             </Text>
           </View>
         </View>
@@ -66,10 +81,11 @@ export const TournamentView = ({tournament, setActiveTab, activeTab, renderSelec
                   onSelectTab={setActiveTab(TAB_BRACKET)}>Bracket</Tab>
           </TabView>
         </View>
-        <View style={{flex:1}}>
-          {renderSelectedTab()}
-        </View>
+       
       </View>
+      <View style={styles.tabBody}>
+          {renderSelectedTab(players)}
+        </View>
     </ScrollView>
     <TouchableOpacity style={styles.joinBtn} onPress={() => navigation.navigate('login')}>
       <Text style={styles.joinBtnText}>JOIN TOURNAMENT</Text>

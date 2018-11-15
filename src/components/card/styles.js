@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20
   },
   imgArea : {
-    flex: 2,
+    flex: 3,
     borderRadius:22,
   },
   detailArea : {
@@ -35,12 +35,13 @@ export const styles = StyleSheet.create({
     flex:2,
     height: 47,
     flexDirection: 'row',
-    alignItems:'center'
+    alignItems:'center',
+    justifyContent: 'space-between'
   },
   title: {
     fontSize: 18,
     color: shared.PRIMERY_COLOR,
-    marginLeft: 15
+   
   },
   details: {
     flex:1,
@@ -68,5 +69,9 @@ export const styles = StyleSheet.create({
   gameIcon: {
     width:48,
     height: 47
+  },
+  detaiilIcons: {
+    width: 16,
+    height: 16
   }
 })

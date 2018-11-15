@@ -6,7 +6,13 @@
 import * as Actions from "../actions/authActions"
 
 const initial_state = {
-		user: {},
+		user: {
+			id: null,
+			coverPhoto: '',
+			email: '',
+			gender: '',
+			name: ''
+		},
 		authenticated : false,
 		loading: false
 }
@@ -20,7 +26,12 @@ export const authReducer = (state = initial_state, action) => {
 			}
 		case Actions.AUTHENTICATE :  
 			return {
-				user: action.user,
+				user: {
+					id: action.user.id,
+					coverPhoto: action.user.coverPhoto.url,
+					email: action.user.email,
+					name:  action.user.name
+				},
 				authenticated : true,
 				loading: false
 			}
@@ -28,6 +39,11 @@ export const authReducer = (state = initial_state, action) => {
 			return {
 				user: {},
 				authenticated : false,
+				loading: false
+			}
+		case Actions.AUTHENTICATION_FAIL: 
+			return {
+				...state,
 				loading: false
 			}
 		default :
