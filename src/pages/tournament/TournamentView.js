@@ -67,7 +67,7 @@ export const TournamentView = ({tournament, setActiveTab, activeTab, renderSelec
           <View style={styles.detailsWrapper}>
             <Image source={iconTrophy} style={styles.detaiilIcons} />
             <Text style={styles.detailText}>
-             14000 PHP
+             {tournament.starting_prize_pot} USD
             </Text>
           </View>
         </View>

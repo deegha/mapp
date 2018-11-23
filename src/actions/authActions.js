@@ -32,7 +32,6 @@ export const loginAction = (user) => dispatch => {
 	dispatch(authenticateRequest())
 	login(user)
 		.then(res => {
-			
 			const tempUser = res.user
 			const userObj = {
 				id: tempUser.id,

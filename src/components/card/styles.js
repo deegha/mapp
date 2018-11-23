@@ -45,7 +45,9 @@ export const styles = StyleSheet.create({
   },
   details: {
     flex:1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    width: '100%'
   },
   date: {
     color: shared.SECONDARY_DETAILS,
@@ -58,7 +60,7 @@ export const styles = StyleSheet.create({
     marginLeft: 5
   },
   priceContainer: {
-    marginLeft: 20,
+    marginLeft: 50,
     flexDirection: 'row',
     alignItems: 'center'
   },

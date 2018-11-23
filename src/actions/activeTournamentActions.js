@@ -67,10 +67,14 @@ export const setPlayers = (players) => ({
   players
 })
 
-export const getParticipantsAction = (id) => dispatch => { console.log("in action")
+export const getParticipantsAction = (id) => dispatch => { console.log(id,  "in action")
   getParticipants(id)
   .then(res => {
-    console.log(res, "action")
-    dispatch(setPlayers(res.individual_participants))
+    if(res.is_team_tournament) {
+      dispatch(setPlayers(res.team_participants))
+    }else {
+      dispatch(setPlayers(res.individual_participants))
+    }
+    
   })
 }

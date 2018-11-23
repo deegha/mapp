@@ -42,8 +42,6 @@ class TournamentsContainer extends React.Component {
       this.setState({showTabs: true})
     else
       this.setState({showTabs: false})
-
-      // console.log(event.nativeEvent.contentOffset.y)
   }
 
   setActiveTab = (tab)=> () => this.setState({activeTab: tab})

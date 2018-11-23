@@ -1,30 +1,35 @@
 import React from 'react'
-import { View, React, Image, Text } from 'react-native'
+import { View, Image, Text,TouchableOpacity } from 'react-native'
 
 import { styles } from './styles'
 
-import calander from '../../../assets/iconCalender.png'
-import trophy from '../../../assets/iconTrophy.png'
+import iconCalendar from '../../../assets/iconCalendar.png'
+import iconTrophy from '../../../assets/iconTrophy.png'
 
-export const CardSmall = ({tournament, date, price}) => {
+export class CardSmall extends React.PureComponent {
 
-  const { title, image, date, price } = tournament
-  return (
-    <View style={styles.cardContainer}>
-      <View style={styles.innerContainer}>
-        <Image source={{uri: image}} style={styles.image} />
-        <Text>{title}</Text>
-      </View>
-      <View style={styles.innerContainer}>
-        <View style={styles.innerContainer}>
-          <Image source={{uri: calander}} style={styles.icon} />
-          <Text style={styles.detailText}>{date}</Text>
+  render() {
+    const { title, game_image, start_date, prize_pot, id } = this.props.tournament
+
+    return (
+      <TouchableOpacity onPress={this.props.onPressItem(id)}>
+        <View style={styles.cardContainer}>
+          <View style={styles.innerContainer}>
+            <Image source={{uri: game_image}} style={styles.image} />
+            <Text style={styles.TitleText} >{title}</Text>
+          </View>
+          <View style={styles.innerContainer}>
+            <View style={styles.innerContainer}>
+              <Image source={iconCalendar} style={styles.icon} />
+              <Text style={styles.detailText}>{new Date(start_date).toDateString()}</Text>
+            </View>
+            <View style={styles.innerContainer}>
+              <Image source={ iconTrophy } style={styles.icon} />
+              <Text style={styles.detailText}>{prize_pot}</Text>
+            </View>
+          </View>
         </View>
-        <View style={styles.innerContainer}>
-          <Image source={{uri: trophy}} style={styles.icon} />
-          <Text style={styles.detailText}>{price}</Text>
-        </View>
-      </View>
-    </View>
-  )
+      </TouchableOpacity>
+    )
+  }
 }

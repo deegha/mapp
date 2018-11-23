@@ -141,5 +141,9 @@ export const styles = StyleSheet.create({
   eicons: {
     width: 27,
     height: 27
+  },
+  tournamentContainer: {
+    width: '100%',
+    padding: 15
   }
 })

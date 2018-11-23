@@ -127,4 +127,4 @@ export const getParticipants = (id) => get('membership/tournaments/'+id+'/partic
  * Get torunaments for user
 */
 
-export const getTournamentsForUser = (userName) => get('membership/tournaments/'+id+'/participants')
+export const getTournamentsForUser = (userName) => get('membership/tournaments/show/'+userName)

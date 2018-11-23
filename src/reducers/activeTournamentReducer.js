@@ -62,13 +62,12 @@ export const activeTournamentReducer = ( state=initialState, action) => {
           players: []
         }
       }
-    case Actions.CLEAR_ACTIVE_TOURNAMENT: 
+    case Actions.CLEAR_ACTIVE_TOURNAMENT:
       return {
         loading: false,
         tournament: {}
       }
     case Actions.SET_PLAYERS: 
-      console.log(action.players, "reducer")
       return {
        ...state,
        tournament: {

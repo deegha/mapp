@@ -87,7 +87,6 @@ export const styles = StyleSheet.create({
   },
   freeTextContainer: {
     padding: 20,
-    // backgroundColor: shared.BACKGROUND_COLOR_3,
     flex: 1
   },
   freeText: {
@@ -150,7 +149,7 @@ export const styles = StyleSheet.create({
   },
   tabBody: {
     flex: 1,
-    backgroundColor: shared.SECONDARY_COLOR,
+    // backgroundColor: shared.SECONDARY_COLOR,
   },
   dateIcon: {
     width: 20,
@@ -165,5 +164,8 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: shared.SECONDARY_TEXT_COLOR,
     marginLeft: 5
+  },
+  infoContainer: {
+    padding: 15
   }
 })

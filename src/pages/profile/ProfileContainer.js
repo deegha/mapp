@@ -12,7 +12,7 @@ import { MyGames } from './mygames'
 import { Tournaments } from './tournaments'
 import { Friends } from './friends'
 
-import { setActiveUser, fetchFriends,fetchUserGames } from '../../actions/activeUserActions'
+import { setActiveUser, fetchFriends,fetchUserGames,fetchTorunaments } from '../../actions/activeUserActions'
 import { ProfileView } from './ProfileView'
 import { styles } from './styles'
 
@@ -35,7 +35,7 @@ class ProfileContainer extends React.Component {
 
     this.state = {
       scrollY: new Animated.Value(0),
-      activeTab: FRIENDS
+      activeTab: TAB_TOURNAMENTS
     }
   }
 
@@ -56,7 +56,6 @@ class ProfileContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("did update")
     if (this.props.activeUser.user.username === "" && !this.props.activeUser.loading) {
       this.selectUserType()
     } 
@@ -64,7 +63,6 @@ class ProfileContainer extends React.Component {
 
 
   selectUserType = () => {
-    console.log("this called")
     if(this.props.profileName && this.props.profileName !== "") {
       this.props.setUser(this.props.profileName)
     }else if(this.props.auth.user.name !== "") {
@@ -134,9 +132,14 @@ class ProfileContainer extends React.Component {
   setActiveTab = (tab) =>() => this.setState({activeTab:tab})
 
   renderSelectedTab = () => {
+
     switch(this.state.activeTab) {
       case TAB_TOURNAMENTS :
-        return <Tournaments />
+        return <Tournaments 
+                navigation={this.props.navigation} 
+                tournamentData={this.props.userTournament}
+                getTouranments={this.props.getTouranments}
+                username={this.props.activeUser.user.username} />
       case TAB_MY_GAMES:
         return <MyGames   
                 mygames={this.props.userGames} 
@@ -222,17 +225,19 @@ class ProfileContainer extends React.Component {
   }
 } 
 
-const mapStateToProps = ({ activeUser, auth, friends, userGames }) => ({
+const mapStateToProps = ({ activeUser, auth, friends, userGames, userTournament }) => ({
   activeUser,
   auth,
   friends,
-  userGames
+  userGames,
+  userTournament
 }) 
 
 const mapDispatchToProps = (dispatch) => ({
   setUser: (userName) => dispatch(setActiveUser(userName)),
   fetchNewFriends: (userName, page) => dispatch(fetchFriends(userName, page)),
-  fetchUserGames: (userName, page) => dispatch(fetchUserGames(userName, page))
+  fetchUserGames: (userName, page) => dispatch(fetchUserGames(userName, page)),
+  getTouranments: (username) => dispatch(fetchTorunaments(username))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer) 

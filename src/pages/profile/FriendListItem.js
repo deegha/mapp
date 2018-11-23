@@ -8,10 +8,7 @@
  import { styles } from './styles'
 
 export class FriendListItem extends React.PureComponent {
-  onPress = (username) => () => { console.log(username)
-    // this.props.navigation.navigate('profile', {
-    //   username
-    // })
+  onPress = (username) => () => { 
   }
 
   render() {

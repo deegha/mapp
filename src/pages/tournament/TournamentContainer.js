@@ -6,7 +6,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { TournamentView } from './TournamentView'
-import { setActiveTournament, joinTournament } from '../../actions/activeTournamentActions' 
+import { setActiveTournament, joinTournament, clearActiveTournament } from '../../actions/activeTournamentActions' 
 
 import { Info } from './Info'
 import Players  from './Players'
@@ -56,15 +56,14 @@ class TournamentContainer extends React.Component {
     }else {
       data = {}
     }
-
-
   } 
 
   renderSelectedTab = (players) => { 
-    console.log('container', players)
     switch(this.state.activeTab) {
       case TAB_INFO :
-        return <Info freetext={this.props.activeTournament.infoText} />
+        return <Info 
+                rules={this.props.activeTournament.rules}
+                description={this.props.activeTournament.infoText} />
       case TAB_PLAYERS:
         return <Players id={this.props.navigation.getParam('id')} />
       case TAB_BRACKET: 
@@ -84,6 +83,10 @@ class TournamentContainer extends React.Component {
               activeTab={this.state.activeTab} 
               tournament={this.props.activeTournament} />
   }
+
+  componentWillUnmount() {
+    this.props.upsetTournament()
+  }
 }
 
 const mapStateToProps = ({activeTournament, auth}) => ({
@@ -94,6 +97,7 @@ const mapStateToProps = ({activeTournament, auth}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setTournament : (id) => dispatch(setActiveTournament(id)),
+  upsetTournament: () => dispatch(clearActiveTournament()),
   join  : (data, id, tournamentType) => dispatch(joinTournament(data, id, tournamentType)) 
 })
 

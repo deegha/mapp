@@ -11,6 +11,7 @@ import { activeTournamentReducer as activeTournament } from './activeTournamentR
 import { activeUserReducer as activeUser } from './activeUserReducer'
 import { friendsReducer as friends } from './friendsReducer'
 import { userGamesReducer as userGames } from './userGamesReducer'
+import { activeUserTournamentsReducer as userTournament } from './activeUserTournamentsReducer'
 
 export const rootReducer = combineReducers({
     auth,
@@ -18,5 +19,6 @@ export const rootReducer = combineReducers({
     activeTournament,
     activeUser,
     friends,
-    userGames
+    userGames,
+    userTournament
 })

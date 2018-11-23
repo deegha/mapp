@@ -10,6 +10,7 @@ import { Localization } from '../components/localization/Localization'
 import { InputText } from './inputMethods/TextInput'
 import { BtnRound } from './inputMethods/btnRound'
 import ParallaxHeader from './parallaxHeader/ParallaxHeader'
+import { CardSmall } from './cardSmall/CardSmall'
 
 export {
   CardView,
@@ -18,5 +19,6 @@ export {
   Localization,
   InputText,
   BtnRound,
-  ParallaxHeader
+  ParallaxHeader,
+  CardSmall
 }

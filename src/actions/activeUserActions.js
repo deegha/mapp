@@ -45,7 +45,6 @@ export const setActiveUser = userName => dispatch => {
     .then(res => {
       getUserBalance()
         .then(balance => {
-          // console.log(balance)
           dispatch(setActiveUserBalanace(balance))
         })
       dispatch(setActiveUserSuccess(res.user))
@@ -114,15 +113,15 @@ const fetchTournamentFail = () => ({
   type: FETCH_USER_TOURNAMENT_FAIL
 })
 
-const fetchTournamentSuccess = () => ({
-  type: FETCH_USER_TOURNAMENT_SUCCESS
+const fetchTournamentSuccess = (tournaments) => ({
+  type: FETCH_USER_TOURNAMENT_SUCCESS,
+  tournaments
 })
 
 export const fetchTorunaments = (username) => dispatch => {
   dispatch(fetchTournamentRequest())
   getTournamentsForUser(username)
     .then(res => {
-      console.log(res)
       dispatch(fetchTournamentSuccess(res.tournaments))      
     })
     .catch(err => {

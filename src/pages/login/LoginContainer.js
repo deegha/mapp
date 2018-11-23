@@ -14,8 +14,8 @@ class LoginContainer extends React.Component {
     super(props)
 
     this.state = {
-      email: '',
-      password: '',
+      email: 'deegha@myleet.com',
+      password: 'steamboat123',
       validForm: true
     }
   }

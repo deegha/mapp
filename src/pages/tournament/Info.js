@@ -3,12 +3,26 @@
  */
 
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text,WebView, Dimensions } from 'react-native'
+
+import HTML from 'react-native-render-html'
 
 import { styles } from './styles'
 
-export const Info = ({freetext}) => (
-  <View style={styles.freeTextContainer}>
-    <Text style={styles.freeText} >{freetext}</Text>
-  </View>
-)
+
+console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed']
+
+export const Info = ({description}) => {
+
+  return (
+    <View style={styles.infoContainer}>
+      <HTML 
+        classesStyles={
+          { 'last-paragraph': { textAlign: 'left', color: '#ffffff' } }
+        }
+        html={`<div  class="last-paragraph">${description} <div>`} 
+        imagesMaxWidth={Dimensions.get('window').width} />
+    </View>
+  )
+  
+}
